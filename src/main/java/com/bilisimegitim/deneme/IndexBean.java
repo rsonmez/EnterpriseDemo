@@ -18,6 +18,7 @@ import javax.faces.bean.ViewScoped;
 public class IndexBean {
 
     private String name;
+    private String surname;
     
     /**
      * Creates a new instance of IndexBean
@@ -31,6 +32,18 @@ public class IndexBean {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+    
+    public void retrieveFromDB(){
+        System.out.println("Gelen değer : " + name);
     }
     
 }
