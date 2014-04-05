@@ -7,8 +7,13 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form>
-        <p:inputText />
+        <h:form id="mainForm">
+            <p:outputLabel value="Ad : " />
+            <p:inputText id="nameText" value="#{indexBean.name}"  >
+                <p:ajax event="blur" update="nameLabel"/>
+            </p:inputText>
+            <p:outputLabel id="nameLabel" value="#{indexBean.name}" />
+            <p:commandButton value="Tıkla" update=":mainForm:nameLabel" />
         </h:form>
     </h:body>
 </html>
