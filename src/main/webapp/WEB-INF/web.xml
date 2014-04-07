@@ -34,7 +34,7 @@
         <param-value>bootstrap</param-value>  
     </context-param>
     <welcome-file-list>
-        <welcome-file>index.jsf</welcome-file>
+        <welcome-file>customer.jsf</welcome-file>
     </welcome-file-list>
     <session-config>
         <session-timeout>30</session-timeout>

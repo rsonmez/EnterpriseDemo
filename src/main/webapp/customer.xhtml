@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title Customer</title>
+        <link rel="stylesheet" type="text/css" href="/EnterpriseDemo/resource/css/common.css"  />
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form id="customerForm">
+                <p:messages autoUpdate="true" />
+                <p:panelGrid columns="2" >
+                    <p:outputLabel value="Tckn : " />
+                    <p:inputText id="tcknText" value="#{customer.tckn}" required="true" requiredMessage="Lütfen Tckn alanını boş bırakmayınız." >
+                        <p:ajax event="blur"  />
+                    </p:inputText>                    
+
+                    <p:outputLabel value="İsim : " />
+                    <p:inputText id="nameText" value="#{customer.name}" required="true" requiredMessage="Lütfen isim alanını boş bırakmayınız." >
+                        <p:ajax event="blur"  />
+                    </p:inputText>
+
+                    <p:outputLabel value="Soyad : " />
+                    <p:inputText id="surnameText" value="#{customer.surname}" required="true" requiredMessage="Lütfen soyad alanını boş bırakmayınız." >
+                        <p:ajax event="blur"  />
+                    </p:inputText>
+
+                    <p:outputLabel value="Doğum Tarihi: "/> 
+                    <p:calendar value="#{calendarBean.date}" id="popupCal"/>
+
+                    <p:outputLabel value="Cinsiyet: " />
+                    <p:selectOneMenu value="#{buttonBean.number}"> 
+                        <f:selectItem itemLabel="Seçin" itemValue="" />
+                        <f:selectItem itemLabel="Erkek" itemValue="E" />  
+                        <f:selectItem itemLabel="Kadın" itemValue="K" />  
+                        <f:selectItem itemLabel="Diğer" itemValue="D" />  
+                    </p:selectOneMenu> 
+
+                    <p:outputLabel value="Medeni Durumu: " /> 
+                    <p:selectOneRadio id="options" value="#{customer.status}">  
+                        <f:selectItem itemLabel="Evli"  itemValue="E" />  
+                        <f:selectItem itemLabel="Bekar" itemValue="B" />  
+                    </p:selectOneRadio>  
+
+                    <p:outputLabel value="Ev Adresi: " />  
+                    <p:inputTextarea id="homeAddr" value="#{customer.home}" rows="5" cols="30" autoResize="false"/> 
+
+                    <p:outputLabel value="İş Adresi: " />  
+                    <p:inputTextarea id="workAddr" value="#{customer.work}" rows="5" cols="30" autoResize="false"/>
+
+                    <p:outputLabel value="E-mail : " />
+                    <p:inputText id="mailText" value="#{customer.mail}" required="true">
+                        <p:ajax event="blur"  />
+                    </p:inputText>                    
+
+                    <p:outputLabel value="Telefon1: " />  
+                    <p:inputMask value="#{maskController.phone1}" mask="(999) 999-99-99"/>
+
+                    <p:outputLabel value="Telefon2: " />  
+                    <p:inputMask value="#{maskController.phone2}" mask="(999) 999-99-99"/>
+
+                    <p:outputLabel value="Fax: " />  
+                    <p:inputMask value="#{maskController.fax}" mask="(999) 999-99-99"/>
+
+                    <p:outputLabel value="Açıklamalar: " />  
+                    <p:inputTextarea id="notesText" value="#{customer.notes}" rows="5" cols="30" autoResize="false"/> 
+
+                    <p:commandButton value="Tıkla" icon="ui-icon-trash"/>
+                </p:panelGrid>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
